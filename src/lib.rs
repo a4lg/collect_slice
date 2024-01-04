@@ -311,10 +311,10 @@ mod test {
     fn test_unsized() {
         let mut buf = [0; 5];
 
-        let it: &mut Iterator<Item=_> = &mut (0..5).map(|i| {
+        let it: &mut dyn Iterator<Item=_> = &mut (0..5).map(|i| {
             i + 1
         });
-        let count = <Iterator<Item=_> as CollectSlice>::collect_slice(it, &mut buf[..]);
+        let count = <dyn Iterator<Item=_> as CollectSlice>::collect_slice(it, &mut buf[..]);
 
         assert_eq!(count, 5);
         assert_eq!(buf, [1, 2, 3, 4, 5]);
