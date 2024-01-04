@@ -45,6 +45,8 @@
 //! use collect_slice::CollectSlice;
 //! ```
 
+#![no_std]
+
 /// An iterator that can collect into a slice.
 pub trait CollectSlice: Iterator {
     /// Loop through the iterator, sequentially writing items into the given slice until
